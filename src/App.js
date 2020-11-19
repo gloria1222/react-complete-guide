@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import Radium, {StyleRoot} from 'radium';
 //import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person';
-import Radium ,{ StyleRoot }from 'radium';
 
 class App extends Component {
   state={
