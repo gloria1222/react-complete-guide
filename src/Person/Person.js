@@ -1,11 +1,13 @@
 import React from 'react';
 //import styled from 'styled-components';
 import './Person.css';
+import Radium from 'radium'
 
 const person = (props) => {
     const style = {
         '@media (min-width: 500px)': {
-            width: '450px'
+            width: '450px',
+            height:'550px'
         }
         
     }
