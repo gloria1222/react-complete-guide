@@ -1,21 +1,6 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
-import './App.css';
+import classes from './App.css';
 import Person from './Person/Person';
-
-const StyledButton = styled.button`
-  background-color: ${props => props.alt ? 'yellowgreen': 'orangered'};
-  color:white;
-  font: inherit;
-  border: 1px solid pink;
-  padding: 8px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${props => props.alt ? 'red': 'lightgreen'};
-    color:black;
-  };
-`;
 
 class App extends Component {
   state={
@@ -59,11 +44,8 @@ class App extends Component {
   }
 
   render() {
-    const style = {
-      
-      }
-    
     let persons = null;
+    let btnClass = '';
     if (this.state.showPersons){
       persons = (
         <div>
@@ -78,28 +60,24 @@ class App extends Component {
           }
         </div>
       );
-      // style.backgroundColor = 'yellowgreen';
-      // style[':hover'] = {
-      //   backgroundColor: 'red',
-      //   color:'black'
-      // };
+      btnClass = classes.Yellowgreen;
     }
     
-    let classes = [];
+    let assignedClassed = [];
     if (this.state.persons.length <=2){
-      classes.push('pink');//classes = ['pink']
+      assignedClassed.push(classes.pink);//assignedClassed = ['pink']
     }
     if (this.state.persons.length <=1){
-      classes.push('bold');//classes = ['pink','bold']
+      assignedClassed.push(classes.bold);//assignedClassed = ['pink','bold']
     }
     
     return (
-        <div className="App">
+        <div className={classes.App}>
           <h1>Hi I'm a React App</h1>
-          <p className={classes.join(' ')}>This is really working!</p>
-          <StyledButton alt={this.state.showPersons} onClick={this.togglePersonsHandler}>
+          <p className={assignedClassed.join(' ')}>This is really working!</p>
+          <button className={btnClass} onClick={this.togglePersonsHandler}>
             Toggle Persons
-          </StyledButton>
+          </button>
           {persons}
         </div>
     );
