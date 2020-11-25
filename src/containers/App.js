@@ -33,6 +33,15 @@ class App extends Component {
     console.log('[App.js] componentDivMount');
   }
 
+  shouldComponentUpdate(nextProps, nextState){
+    console.log('[App.js] shouldComponentUpdate');
+    return true;
+  }
+
+  componentDidUpdate(){
+    console.log('[App.js] componentDidUpdate');
+  }
+
   deletePersonHandler =(personIndex) =>{
     //const persons = this.state.persons.slice();同下
     let persons = [...this.state.persons];

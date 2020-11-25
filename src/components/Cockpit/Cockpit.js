@@ -1,7 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import classes from './Cockpit.css';
 
 const cockpit = (props) => {
+    useEffect(() => {
+        console.log('[Cockpit.js] useEffect');
+        return () => {
+            console.log('[Cockpit.js] cleanup');
+        }
+    },[props.persons]);//Http request...
+
     let assignedClassed = [];
     let btnClass = '';
     if (props.showPersons) {
